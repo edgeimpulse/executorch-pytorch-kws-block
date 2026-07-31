@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Edge Impulse block runner artifacts
+ei-block-data/
+eidata/
+input/
+out/
+output/
+
+# Model artifacts
+*.onnx
+*.pte
+*.pth
+
+# macOS
+.DS_Store

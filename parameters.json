@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "type": "machine-learning",
+    "info": {
+        "name": "PyTorch keyword spotting classifier (ExecuTorch)",
+        "description": "A PyTorch keyword-spotting classifier for audio data. Pairs with an MFE or MFCC processing block, reshapes the flattened spectrogram back into a (frames x coefficients) image, trains a compact 2D CNN, and exports an ONNX model for the platform plus an optional ExecuTorch .pte program for native PyTorch on-device inference.",
+        "operatesOn": "audio",
+        "indRequiresGpu": false,
+        "repositoryUrl": "https://github.com/edgeimpulse/executorch-pytorch-kws-block"
+    },
+    "parameters": [
+        {
+            "name": "Number of training epochs",
+            "value": 30,
+            "type": "int",
+            "param": "epochs",
+            "help": "Number of passes over the training set."
+        },
+        {
+            "name": "Learning rate",
+            "value": 0.001,
+            "type": "float",
+            "param": "learning-rate",
+            "help": "Learning rate for the Adam optimizer."
+        },
+        {
+            "name": "Batch size",
+            "value": 32,
+            "type": "int",
+            "param": "batch-size",
+            "help": "Number of samples per gradient update."
+        },
+        {
+            "name": "Feature columns per frame",
+            "value": 40,
+            "type": "int",
+            "param": "columns",
+            "help": "Number of coefficients per audio frame, used to reshape the flat feature vector into a (frames x columns) spectrogram. Set to the MFE filter number (40 by default) or the MFCC coefficient count (13 by default). The total feature count must be divisible by this value.",
+            "optional": true
+        },
+        {
+            "name": "Export ExecuTorch .pte",
+            "value": true,
+            "type": "flag",
+            "param": "export-pte",
+            "help": "Also export an ExecuTorch program (model.pte) alongside the ONNX model. The .pte is not used by the Edge Impulse SDK but is handy for native PyTorch/ExecuTorch deployment."
+        }
+    ]
+}
