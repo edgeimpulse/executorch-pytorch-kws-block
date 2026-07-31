@@ -7,6 +7,8 @@ An [Edge Impulse custom learning block](https://docs.edgeimpulse.com/studio/orga
 
 This is the audio / keyword-spotting variant of the ExecuTorch end-to-end series (see also the image, time-series and object-detection blocks).
 
+Compatible with the [Executorch Deploy Block](https://github.com/edgeimpulse/executorch-deploy)
+
 ## Files
 
 | File | Purpose |
